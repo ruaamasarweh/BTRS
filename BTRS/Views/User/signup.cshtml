@@ -1,0 +1,103 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+<head>
+     <style>
+        body {
+            background-color: snow;
+        }
+
+        .cont {
+            width: 100%;
+        }
+        
+        .left table {
+            width: 70%;
+            margin-bottom: 20px;
+
+        }
+         .left{
+             float:left;
+            width:50%;
+        } 
+        .right {
+            float: right;
+            width: 50%;
+            margin-top: 0;
+            margin-right: 0;
+        }
+        .cont form {
+            width:100%;
+        }
+        
+        
+        td {
+            padding: 5px;
+        }
+
+        input[type="text"],
+        input[type="password"],
+        select {
+            width: 100%;
+            padding: 8px;
+            box-sizing: border-box;
+            margin-bottom: 10px;
+        }
+
+        input[type="submit"] {
+            background-color: lightcoral;
+            color: white;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        
+    </style>
+</head>
+<body>
+   <div class="cont">
+    <div class="left">
+        @using (Html.BeginForm("signup", "User", FormMethod.Post))
+{     
+    <table>
+        <tr>
+            <td>Name</td>
+            <td>@Html.TextBox("name", null, new { @type = "text" })</td>
+        </tr>
+        <tr>
+            <td>Username</td>
+            <td>@Html.TextBox("username", null, new { @type = "text" })</td>
+        </tr>
+        <tr>
+            <td>Password</td>
+            <td>@Html.TextBox("password", null, new { @type = "password" })</td>
+        </tr>
+        <tr>
+            <td >Phone Number</td>
+            <td>@Html.TextBox("phone_number", null, new { @type = "text" })</td>
+        </tr>
+        <tr>
+            <td>Email Address</td>
+            <td>@Html.TextBox("email_address", null, new { @type = "text" })</td>
+        </tr>
+        <tr>
+            <td>Gender</td>
+            <td>@Html.DropDownList("gender", new SelectList(new List<string> { "Male", "Female" }), null)</td>
+        </tr>
+        </table>
+        
+            @Html.TextBox("signup", "signup", new { @type = "submit" })
+            
+}
+</div>
+        <div class="right">
+            <img src="~/images/btrs.jpeg" alt="BTRS image" width="90%" />
+        </div>
+    </div>
+
+@TempData["Msg"]
+</body>
